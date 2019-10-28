@@ -4,6 +4,8 @@ const cors = require('cors')
 
 const routes = require("./routes");
 
+const port = process.env.PORT || 3333;
+
 const app = express();
 
 mongoose.connect('mongodb+srv://desafio:401401@desafiodito-wc6su.mongodb.net/desafioRafaelSad?retryWrites=true&w=majority',{
@@ -15,4 +17,5 @@ app.use(cors())
 app.use(express.json());
 app.use(routes);
 
-app.listen(process.env.PORT || 3333);
+console.log(`Listen port: ${port}`);
+app.listen(port);
